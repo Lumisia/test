@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var num, money, last, mon, money_wor;
+    num = 1000000;
+    last = 30000000;
+    mon = 0;
+    document.write("<pre>회차  원금   이자   상환총액   잔액</pre>");
+    do{
+        money_wor = last * 0.00375;
+        mon += 1;
+        last -= num;
+        money = num + money_wor;
+        document.write(leadingSpaces(mon,2) + leadingSpaces(num, 10) +
+         leadingSpaces(money_wor,9) + leadingSpaces(money,10)
+         + leadingSpaces(last,11) + "<br>");
+    }while(last != 0);
+    function leadingSpaces(n,digits){
+        var spaces = "";
+        n = n.toString();
+        if(n.length < digits){
+            for (var i = 0; i < (digits - n.length); i++)
+            spaces += "&nbsp;&nbsp;";
+        }
+        return spaces + n;
+    }
+    </script>
+</body>
+</html>
